@@ -116,7 +116,7 @@ body {
   font-size: 25px;
 }
 
-/*Dashboard styles*/
+/*Dashboard, Tabs styles*/
 
 .dashboard-container {
   width: 1000px;
@@ -124,6 +124,25 @@ body {
   background-color: rgba(230, 230, 230, 0.65);
   padding: 10px;
   border-radius: 10px;
+}
+
+.tab-list {  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
 }
 
 table,
@@ -134,19 +153,33 @@ td {
 }
 
 table {
+  margin-top: 30px;
   width: 100%;
   text-align: center;
 }
 
-h1 {
-  text-align: center;
-  text-transform: uppercase;
-  padding: 30px;
-}
 
 td {
   font-size: 13px;
 }
+
+tbody {
+  display: block;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+table thead, table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+#tbody-categoriesTab{
+  overflow-y: hidden;
+}
+
+
 
 /*Maintenance styles*/
 
