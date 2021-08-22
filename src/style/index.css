@@ -110,10 +110,23 @@ body {
   font-weight: 700;
 }
 
-#icon {
-  position: absolute;
-  right: 0;
+.left-side {
+  display: flex;
+  width: 50%;
+  height: 100%;
   font-size: 25px;
+  justify-content: flex-start;
+}
+
+.right-side {
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
+}
+.icon{
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
 }
 
 /*Dashboard, Tabs styles*/
@@ -126,7 +139,8 @@ body {
   border-radius: 10px;
 }
 
-.tab-list {  border-bottom: 1px solid #ccc;
+.tab-list {
+  border-bottom: 1px solid #ccc;
   padding-left: 0;
 }
 
@@ -136,7 +150,6 @@ body {
   margin-bottom: -1px;
   padding: 0.5rem 0.75rem;
   cursor: pointer;
-
 }
 
 .tab-list-active {
@@ -158,7 +171,6 @@ table {
   text-align: center;
 }
 
-
 td {
   font-size: 13px;
 }
@@ -169,17 +181,16 @@ tbody {
   overflow-y: scroll;
 }
 
-table thead, table tbody tr {
+table thead,
+table tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
 }
 
-#tbody-categoriesTab{
+#tbody-categoriesTab {
   overflow-y: hidden;
 }
-
-
 
 /*Maintenance styles*/
 
@@ -209,9 +220,24 @@ table thead, table tbody tr {
   height: 300px;
 }
 
-.button-container #login-button {
+.button-container .logout-button {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.logout-button {
   background-color: black;
   color: #fdd402;
-  margin-top: 50px;
   border-radius: 10px;
+  width: 150px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  margin-left: 20px;
 }

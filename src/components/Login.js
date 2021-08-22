@@ -4,34 +4,28 @@ import companyLogo from "../assets/img/logo.png";
 export default class Login extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       email: "",
       password: ""
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
+  setEmail(email) {
     this.setState({
-      [event.target.name]: event.target.value,
+      email: email
+    });
+  }
+
+  setPassword(password) {
+    this.setState({
+      password: password
     });
   }
 
   handleSubmit(event) {
-    const { email, password } = this.state;
-
-    
-
-    /*.catch((error) => {
-        console.log("login error", error);
-      });*/
     event.preventDefault();
+    this.props.handleLogin(this.state.email,this.state.password);
   }
-
-
 
   render() {
     return (
@@ -39,14 +33,17 @@ export default class Login extends Component {
         <div className="logo">
           <img src={companyLogo} alt="logo" />
         </div>
+        <div>
+          <span>{this.props.loginError}</span>
+        </div>
         <div className="login-form">
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={(e) => this.handleSubmit(e)}>
             <input
               type="email"
               name="email"
               placeholder="Email"
               value={this.state.email}
-              onChange={this.handleChange}
+              onChange={event => this.setEmail(event.target.value)}
               required
             />
 
@@ -55,7 +52,7 @@ export default class Login extends Component {
               name="password"
               placeholder="Contraseña"
               value={this.state.password}
-              onChange={this.handleChange}
+              onChange={event => this.setPassword(event.target.value)}
               required
             />
 

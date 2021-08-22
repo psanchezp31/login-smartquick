@@ -1,26 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { API_URL } from "./Dashboard";
-
 
 export default class GeneralTab extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { athletes: [] };
-  }
-
-  componentDidMount() {
-    const url = `${API_URL}`;
-    axios
-      .get(url)
-      .then((response) => response.data)
-      .then((data) => {
-        this.setState({ athletes: data });
-        console.log(this.state.athletes);
-      });
-  }
-
   render() {
     return (
       <div>
@@ -40,8 +20,8 @@ export default class GeneralTab extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.athletes.map((athlete) => (
-              <tr>
+            {this.props.athletes.map((athlete, index) => (
+              <tr key={index}>
                 <td>{athlete.athlete}</td>
                 <td>{athlete.age}</td>
                 <td>{athlete.country}</td>

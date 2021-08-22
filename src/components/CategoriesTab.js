@@ -1,25 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { API_URL } from "./Dashboard";
 
-export default class GeneralTab extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { total_category: [] };
-  }
-
-  componentDidMount() {
-    const url = `${API_URL}`;
-    axios
-      .get(url)
-      .then((response) => response.data)
-      .then((data) => {
-        this.setState({ total_category: data });
-        console.log(this.state.total_category);
-      });
-  }
-
+export default class CategoriesTab extends Component {
   render() {
     return (
       <div>
@@ -33,15 +14,15 @@ export default class GeneralTab extends Component {
           <tbody id="tbody-categoriesTab">
             <tr>
               <td>🥇 Oro</td>
-              <td>puntaje</td>
+              <td>{this.props.totals.gold}</td>
             </tr>
             <tr>
               <td>🥈 Plata</td>
-              <td>puntaje</td>
+              <td>{this.props.totals.silver}</td>
             </tr>
             <tr>
               <td>🥉 Bronce</td>
-              <td>puntaje</td>
+              <td>{this.props.totals.bronze}</td>
             </tr>
           </tbody>
         </table>
